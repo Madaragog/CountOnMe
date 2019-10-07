@@ -15,6 +15,4 @@ class CountOnMeTextViewTests: XCTestCase {
 
         XCTAssertNotNil(calculatorLogic)
     }
-
-    
 }

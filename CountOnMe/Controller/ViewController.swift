@@ -67,6 +67,12 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func tappedMultiplicationButton(_ sender: UIButton) {
+    }
+
+    @IBAction func tappedDivisionButton(_ sender: UIButton) {
+    }
+
     @IBAction func tappedEqualButton(_ sender: UIButton) {
         guard expressionIsCorrect else {
             alerteVCEqualButton(message: "Entrez une expression correcte !")
@@ -99,21 +105,9 @@ class ViewController: UIViewController {
         textView.text.append(" = \(operationsToReduce.first!)")
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    @IBAction func tappedACButton(_ sender: UIButton) {
+    }
+
     private func alerteVCAdditionAndSubstractionButton(message: String) {
         let alertVC = UIAlertController(title: "Zéro!", message:
             message, preferredStyle: .alert)
