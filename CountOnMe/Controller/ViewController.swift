@@ -46,6 +46,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tappedMultiplicationButton(_ sender: UIButton) {
+        if calculator.canAddOperator(elements: elements) {
+            textView.text.append(" x ")
+        } else {
+            alerteVC(message: "Un operateur est déja mis !")
+        }
     }
 
     @IBAction func tappedDivisionButton(_ sender: UIButton) {
@@ -67,8 +72,8 @@ class ViewController: UIViewController {
             alerteVC(message: "Désoler mais aucun résultat n˙a été trouvé")
         }
     }
-// REVOIR OPTIONNELS ET UNWRAP ET TYPE mettre le type avec deux points essayer de typer le code (let var)
     @IBAction func tappedACButton(_ sender: UIButton) {
+        textView.text = " "
     }
 
     private func alerteVC(message: String) {

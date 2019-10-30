@@ -23,7 +23,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YAc-NO-DIT">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="549.5"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1 + 1 = 2" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="T2H-yn-nBB">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1 + 1 = 2" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="T2H-yn-nBB" customClass="TextViewManagement" customModule="CountOnMe" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="265"/>
                                                 <color key="backgroundColor" red="0.24527746819999999" green="0.53481305040000005" blue="0.58749136739999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,7 +78,6 @@
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="tappedACButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="z46-hG-H1b"/>
-                                                                    <action selector="tappedNumberButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="6wv-s4-dhh"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -205,7 +204,6 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="tappedAdditionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="V0J-eg-vQK"/>
                                                     <action selector="tappedMultiplicationButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="rNZ-Y5-RVX"/>
                                                 </connections>
                                             </button>
@@ -217,7 +215,6 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="tappedAdditionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="CFZ-bi-Me9"/>
                                                     <action selector="tappedDivisionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="crZ-W6-0Lk"/>
                                                 </connections>
                                             </button>

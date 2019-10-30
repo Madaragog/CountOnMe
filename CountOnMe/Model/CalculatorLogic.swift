@@ -33,15 +33,21 @@ class CalculatorLogic {
 
         // Iterate over operations while an operand still here
         while operationsToReduce.count > 1 {
-            print(operationsToReduce)
-            let left: Int = Int(operationsToReduce[0])!
-                let operand = operationsToReduce[1]
-            let right: Int = Int(operationsToReduce[2])!
+            if operationsToReduce[0] == "+" || operationsToReduce[0] == "-" ||
+                operationsToReduce[0] == "x" || operationsToReduce[0] == "/" {
+                operationsToReduce = [""]
+            }
 
-                let result: Int
+            guard let left: Float = Float(operationsToReduce[0]) else {break}
+                let operand = operationsToReduce[1]
+            guard let right: Float = Float(operationsToReduce[2]) else {break}
+
+                let result: Float
                 switch operand {
                 case "+": result = left + right
                 case "-": result = left - right
+                case "/": result = left / right
+                case "x": result = left * right
                 default: return nil
                 }
                 operationsToReduce = Array(operationsToReduce.dropFirst(3))
