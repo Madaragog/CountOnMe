@@ -11,7 +11,8 @@ import Foundation
 class CalculatorLogic {
     // Error check computed variables
     func expressionIsCorrect(elements: [String]) -> Bool {
-        return elements.last != "+" && elements.last != "-" && elements.last != "/"
+        return elements.last != "+" && elements.last != "-" && elements.last != "/" && elements.last != "x" &&
+            elements.first != "+" && elements.first != "/" && elements.first != "x"
     }
 
     func expressionHasEnoughElement(elements: [String]) -> Bool {
@@ -27,17 +28,14 @@ class CalculatorLogic {
     }
 
     @objc func equalFunc(elements: [String]) -> String? {
-//        mettre des guard et unwrap left
         // Create local copy of operations
         var operationsToReduce: [String] = elements
-
+        if elements[0] == "-" {
+            operationsToReduce[0] = "\(elements[0])\(elements[1])"
+            operationsToReduce.remove(at: 1)
+        }
         // Iterate over operations while an operand still here
         while operationsToReduce.count > 1 {
-            if operationsToReduce[0] == "+" || operationsToReduce[0] == "-" ||
-                operationsToReduce[0] == "x" || operationsToReduce[0] == "/" {
-                operationsToReduce = [""]
-            }
-
             guard let left: Float = Float(operationsToReduce[0]) else {break}
                 let operand = operationsToReduce[1]
             guard let right: Float = Float(operationsToReduce[2]) else {break}

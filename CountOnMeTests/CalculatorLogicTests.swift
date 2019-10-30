@@ -29,8 +29,28 @@ class CountOnMeTextViewTests: XCTestCase {
         XCTAssertFalse(calculator.expressionIsCorrect(elements: ["4", "6", "/"]))
     }
 
+    func testGivenLastElementIsMultiplicated_WhenTestingExpressionIsCorrect_ThenItShouldBeFalse() {
+        XCTAssertFalse(calculator.expressionIsCorrect(elements: ["56", "12", "x"]))
+    }
+
     func testGivenLastElementIs5_WhenTestingExpressionIsCorrect_ThenItShouldBeTrue() {
         XCTAssertTrue(calculator.expressionIsCorrect(elements: ["3", "+", "5"]))
+    }
+
+    func testGivenFirstElementIsLess_WhenTestingExpressionIsCorrect_ThenItShouldBeTrue() {
+        XCTAssertTrue(calculator.expressionIsCorrect(elements: ["-", "2", "+", "95"]))
+    }
+
+    func testGivenFirstElementIsPlus_WhenTestingExpressionIsCorrect_ThenItShouldBeFalse() {
+        XCTAssertFalse(calculator.expressionIsCorrect(elements: ["+", "55", "/", "5"]))
+    }
+
+    func testGivenFirstElementIsMultiplicated_WhenTestingExpressionIsCorrect_ThenItShouldBeFalse() {
+        XCTAssertFalse(calculator.expressionIsCorrect(elements: ["x", "42", "+", "7"]))
+    }
+
+    func testGivenFirstElementIsDivised_WhenTestingExpressionIsCorrect_ThenItShouldBeFalse() {
+        XCTAssertFalse(calculator.expressionIsCorrect(elements: ["/", "39", "-", "8"]))
     }
 
     func testGivenNumberOfElementIs2_WhenTestingExpressionHasEnoughElement_ThenItShouldBeFalse() {
@@ -65,8 +85,12 @@ class CountOnMeTextViewTests: XCTestCase {
         XCTAssertEqual(calculator.equalFunc(elements: ["1", "+", "3"]), "4.0")
     }
 
-    func testGivenElementsAre4les3_WhenTestingEqualFunc_ThenResultShouldBe1() {
+    func testGivenElementsAre4less3_WhenTestingEqualFunc_ThenResultShouldBe1() {
         XCTAssertEqual(calculator.equalFunc(elements: ["4", "-", "3"]), "1.0")
+    }
+
+    func testGivenElementsAreLess2Plus4_WhenTestingEqualFunc_ThenResultShouldBe2() {
+        XCTAssertEqual(calculator.equalFunc(elements: ["-2", "+", "4"]), "2.0")
     }
 
     func testGivenElementsAre1Plus1Less4_WhenTestingEqualFunc_ThenResultShouldBeLess2() {
