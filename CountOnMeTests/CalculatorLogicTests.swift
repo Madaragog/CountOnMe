@@ -125,7 +125,11 @@ class CountOnMeTextViewTests: XCTestCase {
         XCTAssertEqual(calculator.equalFunc(elements: ["6", "/", "5", "x", "9"]), "10.8")
     }
 
+    func testGivenElementsAre1MultiBy6DiviBy4MultiBy70DiviBy100_WhenTestingEqualFunc_ThenResultShouldBe1Point05() {
+        XCTAssertEqual(calculator.equalFunc(elements: ["1", "x", "6", "/", "4", "x", "70", "/", "100"]), "1.05")
+    }
+
     func testGivenElementsAre2Plus4Less6MultiplicatedBy9DivisedBy3_WhenTestingEqualFunc_ThenResultShouldBeLess12() {
-        XCTAssertEqual(calculator.equalFunc(elements: ["2", "+", "4", "-", "6", "x", "9", "/", "3"]), "-12")
+        XCTAssertEqual(calculator.equalFunc(elements: ["2", "+", "4", "-", "6", "x", "9", "/", "3"]), "-12.0")
     }
 }

@@ -11,6 +11,6 @@ import UIKit
 
 class TextViewManagement: UITextView {
     override func setNeedsDisplay() {
-        isUserInteractionEnabled = false
+        inputView = UIView()
     }
 }

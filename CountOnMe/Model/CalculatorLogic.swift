@@ -28,29 +28,53 @@ class CalculatorLogic {
     }
 
     @objc func equalFunc(elements: [String]) -> String? {
-        // Create local copy of operations
         var operationsToReduce: [String] = elements
         if elements[0] == "-" {
             operationsToReduce[0] = "\(elements[0])\(elements[1])"
             operationsToReduce.remove(at: 1)
         }
-        // Iterate over operations while an operand still here
+        while operationsToReduce.contains("x") || operationsToReduce.contains("/") {
+            if calculatePriorities(operationsToReduce: operationsToReduce) != nil {
+                operationsToReduce = calculatePriorities(operationsToReduce: operationsToReduce)!
+            }
+        }
         while operationsToReduce.count > 1 {
-            guard let left: Float = Float(operationsToReduce[0]) else {break}
-                let operand = operationsToReduce[1]
-            guard let right: Float = Float(operationsToReduce[2]) else {break}
-
-                let result: Float
-                switch operand {
-                case "+": result = left + right
-                case "-": result = left - right
-                case "/": result = left / right
-                case "x": result = left * right
-                default: return nil
-                }
-                operationsToReduce = Array(operationsToReduce.dropFirst(3))
-                operationsToReduce.insert("\(result)", at: 0)
+        guard operationsToReduce.count >= 3 else {return operationsToReduce.first}
+        guard let left: Float = Float(operationsToReduce[0]) else {break}
+        let operand = operationsToReduce[1]
+        guard let right: Float = Float(operationsToReduce[2]) else {break}
+        let result: Float
+        switch operand {
+        case "+": result = left + right
+        case "-": result = left - right
+        default: return nil
+        }
+        operationsToReduce = Array(operationsToReduce.dropFirst(3))
+        operationsToReduce.insert("\(result)", at: 0)
         }
         return operationsToReduce.first
+    }
+    func calculatePriorities(operationsToReduce: [String]) -> [String]? {
+        var prioritiesCalculated: [String] = operationsToReduce
+        while prioritiesCalculated.contains("x") || prioritiesCalculated.contains("/") {
+                if let index = prioritiesCalculated.firstIndex(where: { $0 == "x" || $0 == "/"}) {
+                    guard let left: Float = Float(prioritiesCalculated[index - 1]) else {break}
+                    let operand = prioritiesCalculated[index]
+                    guard let right: Float = Float(prioritiesCalculated[index + 1]) else {break}
+                    let result: Float
+                    switch operand {
+                    case "x": result = left * right
+                    case "/": result = left / right
+                        if right == 0 {
+                            break
+                            }
+                    default: return nil
+                    }
+                    prioritiesCalculated[index - 1] = "\(result)"
+                    prioritiesCalculated.remove(at: index)
+                    prioritiesCalculated.remove(at: index)
+                }
+        }
+        return prioritiesCalculated
     }
 }

@@ -73,7 +73,7 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func tappedACButton(_ sender: UIButton) {
-        textView.text = " "
+        textView.text.removeAll()
     }
 
     private func alerteVC(message: String) {
