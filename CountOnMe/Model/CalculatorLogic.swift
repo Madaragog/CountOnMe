@@ -54,7 +54,7 @@ class CalculatorLogic {
         }
         return operationsToReduce.first
     }
-    func calculatePriorities(operationsToReduce: [String]) -> [String]? {
+    private func calculatePriorities(operationsToReduce: [String]) -> [String]? {
         var prioritiesCalculated: [String] = operationsToReduce
         while prioritiesCalculated.contains("x") || prioritiesCalculated.contains("/") {
                 if let index = prioritiesCalculated.firstIndex(where: { $0 == "x" || $0 == "/"}) {
