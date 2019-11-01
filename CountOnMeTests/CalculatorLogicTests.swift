@@ -77,7 +77,7 @@ class CountOnMeTextViewTests: XCTestCase {
         XCTAssertTrue(calculator.expressionHasResult(elements: ["7", "1", "="]))
     }
 
-    func testGivenElementContainsEqual_WhenTestingExpressionHasResult_ThenItShouldBeFalse() {
+    func testDontContainsEqual_WhenTestingExpressionHasResult_ThenItShouldBeFalse() {
         XCTAssertFalse(calculator.expressionHasResult(elements: ["8", "2", "9"]))
     }
 
