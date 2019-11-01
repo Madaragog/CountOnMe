@@ -26,7 +26,7 @@ class CalculatorLogic {
     func expressionHasResult(elements: [String]) -> Bool {
         return elements.contains("=")
     }
-
+//    performe calcul
     @objc func equalFunc(elements: [String]) -> String? {
         var operationsToReduce: [String] = elements
         if elements[0] == "-" {
@@ -54,6 +54,7 @@ class CalculatorLogic {
         }
         return operationsToReduce.first
     }
+//    calculate the priorities when the calcul contains a division and\or a multiplication
     private func calculatePriorities(operationsToReduce: [String]) -> [String]? {
         var prioritiesCalculated: [String] = operationsToReduce
         while prioritiesCalculated.contains("x") || prioritiesCalculated.contains("/") {

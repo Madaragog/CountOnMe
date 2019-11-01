@@ -75,7 +75,7 @@ class ViewController: UIViewController {
     @IBAction func tappedACButton(_ sender: UIButton) {
         textView.text.removeAll()
     }
-
+//    When called it shows an alerte with a message
     private func alerteVC(message: String) {
         let alertVC: UIAlertController = UIAlertController(title: "Zéro!", message:
             message, preferredStyle: .alert)
