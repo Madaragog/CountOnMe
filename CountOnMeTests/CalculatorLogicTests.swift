@@ -102,7 +102,7 @@ class CountOnMeTextViewTests: XCTestCase {
     }
 
     func testGivenElementsAre7DivisedBy0_WhenTestingEqualFunc_ThenResultShouldBeInf() {
-        XCTAssertEqual(calculator.equalFunc(elements: ["7", "/", "0"]), "inf")
+        XCTAssertNil(calculator.equalFunc(elements: ["7", "/", "0"]))
     }
 
     func testGivenElementsAre8MultiplicatedBy4_WhenTestingEqualFunc_ThenResultShouldBe32() {
@@ -190,6 +190,6 @@ class CountOnMeTextViewTests: XCTestCase {
     }
 
     func testGivenElementsAre3MultiBy0Less7Plus3DiviBy0_WhenTestingEqualFunc_ThenResultShouldBeInf() {
-        XCTAssertEqual(calculator.equalFunc(elements: ["3", "x", "0", "-", "7", "+", "3", "/", "0"]), "inf")
+        XCTAssertNil(calculator.equalFunc(elements: ["3", "x", "0", "-", "7", "+", "3", "/", "0"]))
     }
 }

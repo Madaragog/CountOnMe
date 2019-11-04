@@ -22,11 +22,13 @@ class CountOnMeUiTests: XCTestCase {
     }
 
     func testCalcul() {
-        let app = XCUIApplication()
         app.buttons["2"].tap()
         app.buttons["4"].tap()
         app.buttons["5"].tap()
-        app.buttons["AC"].tap()
+        XCTAssertEqual(app.textViews["text"].value as? String, "245")
+    }
+
+    func testTime() {
         measure {
             app.buttons["2"].tap()
             app.buttons["4"].tap()
@@ -34,5 +36,4 @@ class CountOnMeUiTests: XCTestCase {
             app.buttons["AC"].tap()
         }
     }
-
 }
