@@ -11,6 +11,7 @@ import UIKit
 
 class TextViewManagement: UITextView {
     override func setNeedsDisplay() {
+//        with this the user can copy and past but the keyboard doesn't show when the textView is tapped
         inputView = UIView()
     }
 }
