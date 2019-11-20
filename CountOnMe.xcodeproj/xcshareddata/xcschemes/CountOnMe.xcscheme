@@ -26,13 +26,14 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1FA43BE2224E569A00F565CB"
+               BlueprintIdentifier = "82ED5D612349FF8E00792F64"
                BuildableName = "CountOnMeTests.xctest"
                BlueprintName = "CountOnMeTests"
                ReferencedContainer = "container:CountOnMe.xcodeproj">
@@ -42,7 +43,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1FA43BED224E569A00F565CB"
+               BlueprintIdentifier = "829623CA236BB03F00860CFD"
                BuildableName = "CountOnMeUITests.xctest"
                BlueprintName = "CountOnMeUITests"
                ReferencedContainer = "container:CountOnMe.xcodeproj">
@@ -52,7 +53,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "82ED5D402349F66500792F64"
+               BlueprintIdentifier = "82ED5D612349FF8E00792F64"
                BuildableName = "CountOnMeTests.xctest"
                BlueprintName = "CountOnMeTests"
                ReferencedContainer = "container:CountOnMe.xcodeproj">

@@ -192,4 +192,28 @@ class CountOnMeTextViewTests: XCTestCase {
     func testGivenElementsAre3MultiBy0Less7Plus3DiviBy0_WhenTestingEqualFunc_ThenResultShouldBeInf() {
         XCTAssertNil(calculator.equalFunc(elements: ["3", "x", "0", "-", "7", "+", "3", "/", "0"]))
     }
+
+    func testGivenElementsAre3MultiBy12DiviBy0_WhenTestingEqualFunc_ThenResultShouldBeNil() {
+        XCTAssertNil(calculator.equalFunc(elements: ["3", "x", "12", "/", "0"]))
+    }
+
+    func testGivenElementsareLessAnd1_WhenTestingEqualFunc_ThenResultShouldBeLess1() {
+        XCTAssertEqual(calculator.equalFunc(elements: ["-", "1"]), "-1")
+    }
+
+    func testGivenElementsArePlusAndLessAndDivi_WhenTestingEqualFunc_ThenResultShouldBeNil() {
+        XCTAssertNil(calculator.equalFunc(elements: ["+", "-", "/"]))
+    }
+
+    func testGivenElementsAre3AndLess_WhenTestingEqualFunc_ThenResultShouldBe3() {
+        XCTAssertEqual(calculator.equalFunc(elements: ["3", "-"]), "3")
+    }
+
+    func testGivenElementsArePlusAndDivi_WhenTestingEqualFunc_ThenResultShouldBeNil() {
+        XCTAssertNil(calculator.equalFunc(elements: ["+", "/"]))
+    }
+
+    func testGivenElementsArePlusAndLessAndPlus_WhenTestingEqualFunc_ThenResultShouldBeNil() {
+        XCTAssertNil(calculator.equalFunc(elements: ["+", "-", "+"]))
+    }
 }

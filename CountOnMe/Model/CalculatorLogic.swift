@@ -20,7 +20,7 @@ class CalculatorLogic {
     }
 
     func canAddOperator(elements: [String]) -> Bool {
-        return elements.last != "+" && elements.last != "-"
+        return elements.last != "+" && elements.last != "-" && elements.last != "/" && elements.last != "x"
     }
 
     func expressionHasResult(elements: [String]) -> Bool {

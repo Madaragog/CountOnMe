@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var numberButtons: [UIButton]!
 
     private var calculator: CalculatorLogic = CalculatorLogic()
-
+//a deplacer dans model
     var elements: [String] {
         return textView.text.split(separator: " ").map { "\($0)" }
     }
