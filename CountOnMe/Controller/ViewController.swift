@@ -18,10 +18,6 @@ class ViewController: UIViewController {
     var elements: [String] {
         return textView.text.split(separator: " ").map { "\($0)" }
     }
-//    receive the notification when the result is founded
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     // View actions
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         guard let numberText: String = sender.title(for: .normal) else {
@@ -70,8 +66,11 @@ class ViewController: UIViewController {
             alerteVC(message: "Entrez une expression correcte !, démarrez un nouveau calcul !")
             return
         }
-        let equalResult = Notification.Name(rawValue: "resultFounded")
-        NotificationCenter.default.addObserver(self, selector: #selector(result), name: equalResult, object: nil)
+        if let result: String = calculator.equalFunc(elements: elements) {
+            textView.text.append(" = \(result)")
+        } else {
+            alerteVC(message: "Désoler mais aucun résultat n˙a été trouvé")
+        }
     }
     @IBAction func tappedACButton(_ sender: UIButton) {
         textView.text.removeAll()
@@ -82,13 +81,5 @@ class ViewController: UIViewController {
             message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
-    }
-//  shows the result
-    @objc private func result(_ sender: UIButton) {
-        if let result: String = calculator.equalFunc(elements: elements) {
-            textView.text.append(" = \(result)")
-        } else {
-            alerteVC(message: "Désoler mais aucun résultat n˙a été trouvé")
-        }
     }
 }

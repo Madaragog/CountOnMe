@@ -24,9 +24,6 @@ class CalculatorLogic {
     }
 
     func expressionHasResult(elements: [String]) -> Bool {
-        let equalResult = Notification.Name(rawValue: "resultFounded")
-        let notification = Notification(name: equalResult)
-        NotificationCenter.default.post(notification)
         return elements.contains("=")
     }
 //    performe calcul
