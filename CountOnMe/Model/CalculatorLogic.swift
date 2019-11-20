@@ -26,6 +26,12 @@ class CalculatorLogic {
     func expressionHasResult(elements: [String]) -> Bool {
         return elements.contains("=")
     }
+//  send a notification for the result
+    func result() {
+        let equalResult = Notification.Name(rawValue: "result")
+        let notification = Notification(name: equalResult)
+        NotificationCenter.default.post(notification)
+    }
 //    performe calcul
     @objc func equalFunc(elements: [String]) -> String? {
         var operationsToReduce: [String] = elements
