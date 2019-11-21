@@ -18,15 +18,9 @@ class ViewController: UIViewController {
     var elements: [String] {
         return textView.text.split(separator: " ").map { "\($0)" }
     }
-//    receive the notification
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let equalResult = Notification.Name(rawValue: "result")
-        NotificationCenter.default.addObserver(self, selector: #selector(result), name: equalResult, object: nil)
-    }
-//    remove the observer
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name("result"), object: nil)
     }
     // View actions
     @IBAction func tappedNumberButton(_ sender: UIButton) {
@@ -72,7 +66,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tappedEqualButton(_ sender: UIButton) {
-        calculator.result()
+        guard calculator.expressionIsCorrect(elements: elements) else {
+            alerteVC(message: "Entrez une expression correcte !, démarrez un nouveau calcul !")
+            return
+        }
+        if let result: String = calculator.equalFunc(elements: elements) {
+            textView.text.append(" = \(result)")
+        } else {
+            alerteVC(message: "Désoler mais aucun résultat n˙a été trouvé")
+        }
     }
 
     @IBAction func tappedACButton(_ sender: UIButton) {
@@ -84,17 +86,5 @@ class ViewController: UIViewController {
             message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
-    }
-//  shows the result
-    @objc private func result() {
-        guard calculator.expressionIsCorrect(elements: elements) else {
-            alerteVC(message: "Entrez une expression correcte !, démarrez un nouveau calcul !")
-            return
-        }
-        if let result: String = calculator.equalFunc(elements: elements) {
-            textView.text.append(" = \(result)")
-        } else {
-            alerteVC(message: "Désoler mais aucun résultat n˙a été trouvé")
-        }
     }
 }
