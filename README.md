@@ -1,3 +1,5 @@
+SCHOOL PROJECT
+
 # CountOnMe
 
 Count on me is a simple calculator with divison, multiplication, addition and substraction.
